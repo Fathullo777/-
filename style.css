@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0; /* Убираем отступы по умолчанию */
+}
+
+.container {
+    display: flex; /* Меняем на flex для горизонтального расположения */
+    align-items: center; /* Центрируем по вертикали */
+}
+
+.large-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px; /* Максимальная ширина для большой фотографии */
+}
+
+.large-photo img {
+    max-width: 100%; /* Устанавливаем максимальную ширину на 100% */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    border: 2px solid #ccc;
+    image-rendering: crisp-edges; /* Улучшаем четкость изображения */
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 70px; /* Отступ слева для разделения с большой фотографией */
+}
+
+.thumbnail {
+    width: 100px;
+    height: auto;
+    margin: 10px 0; /* Вертикальные отступы между миниатюрами */
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+    border-color: black;
+}
+
+/* Медиазапросы для адаптации под мобильные устройства */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Меняем направление на вертикальное */
+        align-items: center; /* Центрируем по горизонтали */
+        padding: 20px; /* Добавляем отступы для мобильных устройств */
+    }
+
+    .large-photo {
+        margin-bottom: 20px; /* Отступ снизу для разделения с миниатюрами */
+    }
+
+    .thumbnail-container {
+        margin-left: 0; /* Убираем левый отступ */
+        flex-direction: row; /* Располагаем миниатюры в строку */
+        overflow-x: auto; /* Добавляем прокрутку по горизонтали */
+        padding: 10px 0; /* Отступы сверху и снизу */
+    }
+
+    .thumbnail {
+        width: 80px; /* Уменьшаем ширину миниатюр для мобильных устройств */
+        margin: 5px; /* Меньшие отступы между миниатюрами */
+    }
+}
