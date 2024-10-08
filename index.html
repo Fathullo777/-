@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог фотографий</title>
     <link rel="stylesheet" href="style.css">
+    <title>Игра: Угадай число</title>
 </head>
 <body>
     <div class="container">
-        <div class="large-photo">
-            <img id="mainImage" src="photo1.jpg" alt="Большая фотография">
-        </div>
-        <div class="thumbnail-container">
-            <img class="thumbnail" src="images/products/burger-1.png" alt="Фото 1" onclick="changeImage('images/products/burger-1.png')">
-            <img class="thumbnail" src="images/products/burger-2.png" alt="Фото 2" onclick="changeImage('images/products/burger-2.png')">
-            <img class="thumbnail" src="images/products/burger-3.png" alt="Фото 3" onclick="changeImage('images/products/burger-3.png')">
-            <img class="thumbnail" src="images/products/burger-4.png" alt="Фото 4" onclick="changeImage('images/products/burger-4.png')">
+        <h1>Угадай число!</h1>
+        <p>Я загадал число от 1 до 100. Попробуй угадать его!</p>
+        <input type="number" id="guessInput" placeholder="Введите ваше число" />
+        <button id="guessButton">Угадать</button>
+        <div id="result"></div>
+        <button id="resetButton" style="display:none;">Начать заново</button>
+        <div class="tips">
+            <h2>Советы по игре</h2>
+            <p>1. Вводите числа от 1 до 100.</p>
+            <p>2. Если ваше число слишком низкое, я скажу "Слишком низко!"</p>
+            <p>3. Если ваше число слишком высокое, я скажу "Слишком высоко!"</p>
+            <p>4. Удачи!</p>
         </div>
     </div>
     <script src="main.js"></script>

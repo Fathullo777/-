@@ -1,71 +1,135 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #9face6);
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
-    margin: 0; /* Убираем отступы по умолчанию */
 }
 
 .container {
-    display: flex; /* Меняем на flex для горизонтального расположения */
-    align-items: center; /* Центрируем по вертикали */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s;
+    position: relative; /* Изменено на relative для лучшей адаптивности */
+    max-width: 400px; /* Максимальная ширина для контейнера */
+    width: 90%; /* Ширина контейнера на мобильных устройствах */
 }
 
-.large-photo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px; /* Максимальная ширина для большой фотографии */
+.container:hover {
+    transform: scale(1.02);
 }
 
-.large-photo img {
-    max-width: 100%; /* Устанавливаем максимальную ширину на 100% */
-    height: auto; /* Автоматическая высота для сохранения пропорций */
-    border: 2px solid #ccc;
-    image-rendering: crisp-edges; /* Улучшаем четкость изображения */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.thumbnail-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 70px; /* Отступ слева для разделения с большой фотографией */
+p {
+    color: #555;
+    margin-bottom: 20px;
 }
 
-.thumbnail {
-    width: 100px;
-    height: auto;
-    margin: 10px 0; /* Вертикальные отступы между миниатюрами */
+input[type="number"] {
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    width: 80%;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
-    border: 2px solid transparent;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.thumbnail:hover {
-    border-color: black;
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
-/* Медиазапросы для адаптации под мобильные устройства */
-@media (max-width: 768px) {
+button:active {
+    transform: translateY(0);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+    transition: color 0.3s, opacity 0.5s ease-in;
+    opacity: 0; /* Начальное состояние - невидимо */
+}
+
+.correct {
+    color: green;
+    opacity: 1; /* Видимо при правильном ответе */
+}
+
+.too-low {
+    color: orange;
+    opacity: 1; /* Видимо при слишком низком ответе */
+}
+
+.too-high {
+    color: red;
+    opacity: 1; /* Видимо при слишком высоком ответе */
+}
+
+#resetButton {
+    margin-top: 20px;
+    background-color: #28a745;
+    position: relative;
+    left: 0; /* Убрали смещение для мобильных устройств */
+}
+
+#resetButton:hover {
+    background-color: #218838;
+}
+
+.tips {
+    margin-top: 30px;
+    text-align: left;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em; /* Уменьшаем размер шрифта заголовка */
+    }
+
+    p, .tips p {
+        font-size: 0.9em; /* Уменьшаем размер текста */
+    }
+
+    input[type="number"], button {
+        width: 100%; /* Ширина для кнопок и инпутов на мобильных устройствах */
+    }
+
     .container {
-        flex-direction: column; /* Меняем направление на вертикальное */
-        align-items: center; /* Центрируем по горизонтали */
-        padding: 20px; /* Добавляем отступы для мобильных устройств */
+        padding: 20px ;
+        width: 320px;
     }
-
-    .large-photo {
-        margin-bottom: 20px; /* Отступ снизу для разделения с миниатюрами */
-    }
-
-    .thumbnail-container {
-        margin-left: 0; /* Убираем левый отступ */
-        flex-direction: row; /* Располагаем миниатюры в строку */
-        overflow-x: auto; /* Добавляем прокрутку по горизонтали */
-        padding: 10px 0; /* Отступы сверху и снизу */
-    }
-
-    .thumbnail {
-        width: 80px; /* Уменьшаем ширину миниатюр для мобильных устройств */
-        margin: 5px; /* Меньшие отступы между миниатюрами */
+    #guessInput {
+        width: auto;
     }
 }
